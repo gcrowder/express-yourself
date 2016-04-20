@@ -31,6 +31,7 @@ def money(string):
     else:
         return None
 
+
 def zipcode(string):
     code = re.findall(r'^\d{5}-\d{4}', string)
     zip_code, plus_four = code.groups()
