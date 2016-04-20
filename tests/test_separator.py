@@ -58,22 +58,22 @@ def test_money(input, expected):
     assert s.money(input) == expected
 
 
-# @xfail
-# @params("input,expected", [
-#     ("63936", {"zip": "63936", "plus4": None}),
-#     ("50583", {"zip": "50583", "plus4": None}),
-#     ("06399", {"zip": "06399", "plus4": None}),
-#     ("26433-3235", {"zip": "26433", "plus4": "3235"}),
-#     ("64100-6308", {"zip": "64100", "plus4": "6308"}),
-#     ("7952", None),
-#     ("115761", None),
-#     ("60377-331", None),
-#     ("8029-3924", None),
-# ])
-# def test_zip(input, expected):
-#     assert s.zipcode(input) == expected
-#
-#
+@xfail
+@params("input,expected", [
+    ("63936", {"zip": "63936", "plus4": None}),
+    ("50583", {"zip": "50583", "plus4": None}),
+    ("06399", {"zip": "06399", "plus4": None}),
+    ("26433-3235", {"zip": "26433", "plus4": "3235"}),
+    ("64100-6308", {"zip": "64100", "plus4": "6308"}),
+    ("7952", None),
+    ("115761", None),
+    ("60377-331", None),
+    ("8029-3924", None),
+])
+def test_zip(input, expected):
+    assert s.zipcode(input) == expected
+
+
 # @xfail
 # @params("input,expected", [
 #     ("9/4/1976", {"month": 9, "day": 4, "year": 1976}),

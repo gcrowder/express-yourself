@@ -30,3 +30,8 @@ def money(string):
         return {'currency': '$', 'amount': float(dollas[1:].replace(',', ''))}
     else:
         return None
+
+def zipcode(string):
+    code = re.findall(r'^\d{5}-\d{4}', string)
+    zip_code, plus_four = code.groups()
+    return {'zip': zip_code, 'plus4': plus_four}
