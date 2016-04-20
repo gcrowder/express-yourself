@@ -33,6 +33,13 @@ def money(string):
 
 
 def zipcode(string):
-    code = re.findall(r'^\d{5}-\d{4}', string)
-    zip_code, plus_four = code.groups()
-    return {'zip': zip_code, 'plus4': plus_four}
+    length = len(string)
+    if length == 5 or length == 10:
+        code = re.search(r'(^\d{5}-\d{4})|(^\d{5})', string)
+        zip_plus_four, zip_code = code.groups()
+        if zip_code:
+            return {'zip': zip_code[:5], 'plus4': None}
+        else:
+            return {'zip': zip_plus_four[:5], 'plus4': zip_plus_four[6:10]}
+    else:
+        return None
