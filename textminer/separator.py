@@ -22,6 +22,11 @@ def phone_number(string):
 
 
 def money(string):
-    mo_problems = re.search(r'(^$)(\d,\.)')
-    dolla, number = mo_problems.groups
-    return {'currency': dolla, 'amount': float(number)}
+    if len(string) == 1 or string[0] != '$' or string[1] == '$':
+        return None
+    mo_problems = re.search(r'((^\$\d{1,}\.\d{2})|(^\$\d{1,3},\d{3},\d{3}\.\d{2})|(^\$\d,\d{3}\.\d{2})|(^\$\d{1,3},\d{3},\d{3})|(^\$\d{1,3},\d{3})|(^\$\d{1,4}))', string)
+    if len(string) == len(mo_problems.group(1)):
+        dollas = mo_problems.group(1)
+        return {'currency': '$', 'amount': float(dollas[1:].replace(',', ''))}
+    else:
+        return None
