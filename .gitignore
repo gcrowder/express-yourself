@@ -4,3 +4,4 @@
 .cache
 tests/__pycache__/*
 textminer/__pycache__/*
+tests/__pycache__/test_extractor.cpython-35-PYTEST.pyc
