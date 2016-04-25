@@ -43,3 +43,17 @@ def zipcode(string):
             return {'zip': zip_plus_four[:5], 'plus4': zip_plus_four[6:10]}
     else:
         return None
+
+
+def date(string):
+    d_m_y = re.search(r'(\b\d{1,2})[-\/:](\d{1,2})[-\/:](\d{4}\b)', string)
+    y_m_d = re.search(r'(\d{4})[-\/](\d{2})[-\/](\d{2})', string)
+    if d_m_y:
+        month, day, year = d_m_y.groups()
+    elif y_m_d:
+        year, month, day = y_m_d.groups()
+    else:
+        return None
+    return {'month': int(month),
+            'day': int(day),
+            'year': int(year)}
